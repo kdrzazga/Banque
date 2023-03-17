@@ -1,17 +1,7 @@
 --Script automatically executed on startup by Hibernate
 --revision 1
-drop table IF EXISTS bank;
-drop table IF EXISTS account;
-drop table IF EXISTS savings_account;
-drop table IF EXISTS transfer;
-drop table IF EXISTS country;
-drop table IF EXISTS city;
-drop table IF EXISTS currency;
-drop table IF EXISTS credit;
-drop table IF EXISTS credit_card;
-drop table IF EXISTS debit_card;
-drop table IF EXISTS real_estate;
-drop table IF EXISTS log;
+
+drop all objects;
 
 create TABLE bank (
     id bigint NOT NULL AUTO_INCREMENT,
@@ -114,7 +104,7 @@ create TABLE log(
 
 insert into bank(id, shortname, name) values (1001, 'A', 'Agilent Technologies');
 insert into account(id, corporate, shortname, name, balance, bank_id) values (2001, TRUE, 'MUSA', 'Murphy USA Inc', 2001.24, 1001);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'RAD', 'Rite Aid Corp', 0.7100, 1001);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2002, true, 'RAD', 'Rite Aid Corp', 0.7100, 1001);
 insert into transfer(id, src_account_id, dest_account_id, units, internal) values (3001, 2002, 2001, 123.44, TRUE);
 insert into currency(id, name, shortname) values (30001, 'Polish Zloty', 'PLN');
 insert into country(id, name, shortname, currency_id) values (10001, 'Poland', 'PL', 30001);
@@ -125,36 +115,36 @@ insert into debit_card (id, account_id, is_active, bank_id, currency_id, balance
 insert into real_estate(id, address, city_id) values (55001, 'Powstancow Slaskich 33', 20001);
 insert into log(id, created, file_path) values (130101, '2019-10-15 00:00:01', null);
 
-insert into bank(shortname, name) values('AAC', 'Aac Holdings Inc');
-insert into bank(shortname, name) values('AAN', 'Aarons Inc');
-insert into bank(shortname, name) values('AAP', 'Advance Auto Parts Inc');
-insert into bank(shortname, name) values('AAT', 'American Assets Trust');
-insert into bank(shortname, name) values('AB', 'Alliancebernstein Holding LP');
-insert into bank(shortname, name) values('ABB', 'Abb Ltd');
-insert into bank(shortname, name) values('ABBV', 'Abbvie Inc');
-insert into bank(shortname, name) values('ABC', 'Amerisourcebergen Corp');
-insert into bank(shortname, name) values('AA', 'Alcoa Corp');
-insert into bank(shortname, name) values('ABEV', 'Ambev S.A.');
-insert into bank(shortname, name) values('ABG', 'Asbury Automotive Group Inc');
-insert into bank(shortname, name) values('ABM', 'ABM Industries Incorporated');
-insert into bank(shortname, name) values('B', 'Barnes Group');
-insert into bank(shortname, name) values('BA', 'Boeing Company');
-insert into bank(shortname, name) values('BABA', 'Alibaba Group Holding');
-insert into bank(shortname, name) values('BAC', 'Bank of America Corp');
-insert into bank(shortname, name) values('BAC-A', 'Bank of America Corp Pfd A');
-insert into bank(shortname, name) values('BAC-B', 'Bank of America Corp. Dep Shs Repstg');
-insert into bank(shortname, name) values('BAC-C', 'Bank of America Corp Pfd C');
-insert into bank(shortname, name) values('BAC-E', 'Bank of America Corp Dep R');
+insert into bank(id, shortname, name) values(1002, 'AAC', 'Aac Holdings Inc');
+insert into bank(id, shortname, name) values(1003, 'AAN', 'Aarons Inc');
+insert into bank(id, shortname, name) values(1004, 'AAP', 'Advance Auto Parts Inc');
+insert into bank(id, shortname, name) values(1005, 'AAT', 'American Assets Trust');
+insert into bank(id, shortname, name) values(1006, 'AB', 'Alliancebernstein Holding LP');
+insert into bank(id, shortname, name) values(1007,'ABB', 'Abb Ltd');
+insert into bank(id, shortname, name) values(1008,'ABBV', 'Abbvie Inc');
+insert into bank(id, shortname, name) values(1009,'ABC', 'Amerisourcebergen Corp');
+insert into bank(id, shortname, name) values(1010,'AA', 'Alcoa Corp');
+insert into bank(id, shortname, name) values(1011, 'ABEV', 'Ambev S.A.');
+insert into bank(id, shortname, name) values(1012,'ABG', 'Asbury Automotive Group Inc');
+insert into bank(id, shortname, name) values(1013,'ABM', 'ABM Industries Incorporated');
+insert into bank(id, shortname, name) values(1014,'B', 'Barnes Group');
+insert into bank(id, shortname, name) values(1015,'BA', 'Boeing Company');
+insert into bank(id, shortname, name) values(1016,'BABA', 'Alibaba Group Holding');
+insert into bank(id, shortname, name) values(1017,'BAC', 'Bank of America Corp');
+insert into bank(id, shortname, name) values(1018,'BAC-A', 'Bank of America Corp Pfd A');
+insert into bank(id, shortname, name) values(1019,'BAC-B', 'Bank of America Corp. Dep Shs Repstg');
+insert into bank(id, shortname, name) values(1020,'BAC-C', 'Bank of America Corp Pfd C');
+insert into bank(id, shortname, name) values(1021, 'BAC-E', 'Bank of America Corp Dep R');
 insert into bank(shortname, name) values('BAC-K', 'Bank of America Corp Dep Shs Repstg');
 insert into bank(shortname, name) values('BAC-L', 'Bank of America Corp Pfd L');
-insert into bank(shortname, name) values('BAC-W', 'Bank of America Corp Pfd W');
-insert into bank(shortname, name) values('BAC-Y', 'Bank of America Corp Pfd Y');
+insert into bank(id, shortname, name) values(1024, 'BAC-W', 'Bank of America Corp Pfd W');
+insert into bank(id, shortname, name) values(1025, 'BAC-Y', 'Bank of America Corp Pfd Y');
 insert into bank(shortname, name) values('BAC.A', 'Bank of America Corp Cl A');
 insert into bank(shortname, name) values('BAF', 'Blackrock Income Inv Quality Trust');
-insert into bank(shortname, name) values('BAH', 'Booz Allen Hamilton Holding Corp');
-insert into bank(shortname, name) values('BAK', 'Braskem S.A.');
-insert into bank(shortname, name) values('BAM', 'Brookfield Asset Management Inc');
-insert into bank(shortname, name) values('BAN-D', 'Bank of California Inc Pref Share Series');
+insert into bank(id, shortname, name) values(1028, 'BAH', 'Booz Allen Hamilton Holding Corp');
+insert into bank(id, shortname, name) values(1029, 'BAK', 'Braskem S.A.');
+insert into bank(id, shortname, name) values(1030, 'BAM', 'Brookfield Asset Management Inc');
+insert into bank(id, shortname, name) values(1031, 'BAN-D', 'Bank of California Inc Pref Share Series');
 insert into bank(shortname, name) values('BAN-E', 'Banc of California Inc');
 insert into bank(shortname, name) values('BANC', 'First Pactrust Bancorp');
 insert into bank(shortname, name) values('BAP', 'Credicorp Ltd');
@@ -164,7 +154,7 @@ insert into bank(shortname, name) values('MS-K', 'Morgan Stanley Dep Shs Repstg'
 insert into bank(shortname, name) values('MSA', 'Msa Safety Inc');
 insert into bank(shortname, name) values('MSB', 'Mesabi Trust');
 insert into bank(shortname, name) values('MSC', 'Studio City Intl Holdings Ltd ADR');
-insert into bank(shortname, name) values('GOOGL', 'Google Inc.');
+insert into bank(id, shortname, name) values(1041, 'GOOGL', 'Google Inc.');
 insert into bank(shortname, name) values('MSD', 'Morgan Stanley Emerging Markets Debt');
 insert into bank(shortname, name) values('MSF', 'Morgan Stanley Emerging Markets Fund Inc');
 insert into bank(shortname, name) values('MSG', 'The Madison Square Garden Comp');
@@ -175,24 +165,23 @@ insert into bank(shortname, name) values('MSM', 'Msc Industrial Direct Company')
 insert into bank(shortname, name) values('MT', 'Arcelormittal');
 insert into bank(shortname, name) values('MTB', 'M&T Bank Corp');
 insert into bank(shortname, name) values('MTB-C', 'M&T Bank Corporation Fixed Rate');
-insert into bank(shortname, name) values('MTB.P', 'M&T Bank Corporation Fixed Rate');
+insert into bank(id, shortname, name) values(1052, 'MTB.P', 'M&T Bank Corporation Fixed Rate');
 
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'RAMP', 'Liveramp Holdings Inc.', 38.35, 1011);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'RBA', 'Ritchie Bros. Auctioneers Inc', 31.33, 1011);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2003, true, 'RBA', 'Ritchie Bros. Auctioneers Inc', 31.33, 1011);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'RBC', 'Regal-Beloit Corp', 69.18, 1021);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'X', 'United States Steel Corp', 17.46, 1021);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'XAN', 'Exantas Capital Corp', 9.760, 1021);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2005, true, 'XAN', 'Exantas Capital Corp', 9.760, 1021);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'XAN-C', 'Exantas Capital Corp. Pfd', 23.85, 1021);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'XEC', 'Cimarex Energy Co', 59.52, 1021);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'XFLT', 'Xai Octagon Floating Alt Income Term', 7.300, 1021);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'XHR', 'Xenia Hotels & Resorts Inc', 16.66, 1002);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'MZA', 'Muniyield Arizona Fund', 103, 1041);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'MX', 'Magnachip Semiconductor Corp', 84, 1041);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'MXF', 'Mexico Fund', 334, 1006);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'R', 'Ryder System', 46.23, 1011);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'RA', 'Brookfield Real Assets Income Fund Inc', 18.33, 1011);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'RACE', 'Ferrari N.V.', 97.87, 1011);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'XIN', 'Xinyuan Real Estate Co Ltd', 3.800, 1003);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2010, true, 'MZA', 'Muniyield Arizona Fund', 103, 1041);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2011, true, 'MX', 'Magnachip Semiconductor Corp', 84, 1041);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2012, true, 'MXF', 'Mexico Fund', 334, 1006);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2013, true, 'R', 'Ryder System', 46.23, 1011);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2014, true, 'RA', 'Brookfield Real Assets Income Fund Inc', 18.33, 1011);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2015, true, 'RACE', 'Ferrari N.V.', 97.87, 1011);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2016, true, 'XIN', 'Xinyuan Real Estate Co Ltd', 3.800, 1003);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'XOM', 'Exxon Mobil Corp', 66.30, 1004);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'XOXO', 'Xoxo Group Inc', 35.00, 1005);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'XPO', 'Xpo Logistics Inc', 51.79, 1006);
@@ -216,20 +205,20 @@ insert into account(corporate, shortname, name, balance, bank_id) values (true, 
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UE', 'Urban Edge Properties', 16.84, 1015);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UFI', 'Unifi Inc', 22.331, 1011);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UFS', 'Domtar Corp', 35.2, 1011);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UGI', 'Ugi Corp', 56.21, 1011);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2040, true, 'UGI', 'Ugi Corp', 56.21, 1011);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UGP', 'Ultrapar Participacoes S.A.', 12.78, 1019);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UHS', 'Universal Health Services', 115.0, 1020);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UHT', 'Universal Health Realty Income Trust', 61.07, 1021);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UIS', 'Unisys Corp', 11.08, 1011);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UL', 'Unilever Plc', 52.62, 1011);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UMC', 'United Microelectronics Corp', 1.790, 1024);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UMH', 'Umh Properties', 11.92, 1025);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UMH-B', 'Umh Properties Inc', 25.63, 1011);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UMH-C', 'Umh Properties Inc', 23.18, 1011);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2045, true, 'UL', 'Unilever Plc', 52.62, 1011);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2046, true, 'UMC', 'United Microelectronics Corp', 1.790, 1024);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2047, true, 'UMH', 'Umh Properties', 11.92, 1025);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2048, true, 'UMH-B', 'Umh Properties Inc', 25.63, 1011);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2049, true, 'UMH-C', 'Umh Properties Inc', 23.18, 1011);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UMH-D', 'Umh Properties Inc Cum Red Pfd Ser D', 22.00, 1028);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UN', 'Unilever Nv', 53.96, 1029);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UNF', 'Unifirst Corp', 136.7, 1029);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UNH', 'Unitedhealth Group Inc', 237.9, 1031);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UNH', 'Unitedhealth Group Inc', 237.9, 1029);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UNM', 'Unumprovident Corp', 28.07, 1001);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UNMA', 'Unum Group 6.250% Junior Subordinated', 22.95, 1002);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UNP', 'Union Pacific Corp', 132.5, 1003);
@@ -251,40 +240,30 @@ insert into account(corporate, shortname, name, balance, bank_id) values (true, 
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'USM', 'United States Cellular Corp', 49.69, 1019);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'USNA', 'Usana Health Sciences Inc', 113.4, 1020);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'USPH', 'U.S. Physical Therapy', 100.58, 1021);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'USX', 'U.S. Xpress Enterprises Inc. Class A', 5.100, 1022);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UTF', 'Cohen & Steers Infrastructure Fund', 19.04, 1023);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UTI', 'Universal Technical Institute Inc', 3.485, 1024);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UTL', 'Unitil Corp', 51.95, 1025);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UTX', 'United Technologies Corp', 105.7, 1026);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UVE', 'Universal Insurance Holdings Inc', 37.13, 1027);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UTX', 'United Technologies Corp', 105.7, 1021);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UVE', 'Universal Insurance Holdings Inc', 37.13, 1021);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UVV', 'Universal Corp', 56.10, 1028);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UZA', 'United States Cellular Corp', 22.40, 1029);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UZB', 'United States Cellular Corpora', 24.14, 1030);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UZC', 'United States Cellular Corpora', 24.52, 1031);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'L', 'Loews Corp', 43.87, 1032);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LAC', 'Lithium Americas Corp', 2.950, 1033);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LAD', 'Lithia Motors', 71.10, 1034);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LADR', 'Ladder Capital Corp', 15.25, 1035);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LAIX', 'Laix Inc. ADR', 7.840, 1036);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LAZ', 'Lazard Ltd', 35.23, 1037);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LB', 'L Brands Inc', 25.19, 1038);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LBRT', 'Liberty Oilfield Services Inc', 13.30, 1039);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LC', 'Lendingclub Corp', 2.620, 1040);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LCI', 'Lannett Co Inc', 4.810, 1041);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LCII', 'Lci Industries', 63.17, 1042);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LDL', 'Lydall Inc', 19.81, 1043);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LDOS', 'Leidos Holdings Inc', 51.41, 1044);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LDP', 'Cohen & Steers Ltd Duration Prfd Income', 20.61, 1043);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LEA', 'Lear Corp', 119.4, 1042);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LEAF', 'Leaf Group Ltd', 7.390, 1041);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UZB', 'United States Cellular Corpora', 24.14, 1020);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'UZC', 'United States Cellular Corpora', 24.52, 1021);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'L', 'Loews Corp', 43.87, 1021);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LAC', 'Lithium Americas Corp', 2.950, 1029);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LAD', 'Lithia Motors', 71.10, 1024);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LADR', 'Ladder Capital Corp', 15.25, 1025);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LAIX', 'Laix Inc. ADR', 7.840, 1029);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LAZ', 'Lazard Ltd', 35.23, 1021);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LB', 'L Brands Inc', 25.19, 1028);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LC', 'Lendingclub Corp', 2.620, 1029);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LDL', 'Lydall Inc', 19.81, 1029);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LEE', 'Lee Enterprises Inc', 2.035, 1011);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LEG', 'Leggett & Platt Inc', 35.02, 1011);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LEJU', 'Leju Holdings Ltd', 1.280, 1011);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LEN', 'Lennar Corp', 38.92, 1037);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LEN.B', 'Lennar Corp Cl B', 31.27, 1036);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LEO', 'Dreyfus Strategic Municipals', 7.150, 1035);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LFC', 'China Life Insurance Company Ltd', 10.40, 1034);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LGC', 'Legacy Acquisition Corp', 9.800, 1033);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LEN', 'Lennar Corp', 38.92, 1029);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LEN.B', 'Lennar Corp Cl B', 31.27, 1029);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LFC', 'China Life Insurance Company Ltd', 10.40, 1029);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LGC', 'Legacy Acquisition Corp', 9.800, 1029);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LGC.U', 'Legacy Acquisition Corp Units', 10.10, 1011);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LGC.W', 'Legacy Acquisition Corp. WT', 0.3100, 1011);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LGF.A', 'Lions Gate Banque Cl A', 14.76, 1011);
@@ -296,11 +275,11 @@ insert into account(corporate, shortname, name, balance, bank_id) values (true, 
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LGF.G', 'Lions Gate Banque Cl6 B', 1543944334.04, 1011);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LGF.X', 'Lions Gate Banque Cl7 B', 15944334.04, 1011);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LGI', 'Lazard Global Total Return and', 13.01, 1028);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LH', 'Laboratory Corporation of America', 123.4, 1027);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LHC', 'Leo Holdings Corp. Class A', 9.700, 1026);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LH', 'Laboratory Corporation of America', 123.4, 1021);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LHC', 'Leo Holdings Corp. Class A', 9.700, 1029);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LHC.U', 'Leo Holdings Corp. Units Each Consisting', 10.21, 1025);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LHC.W', 'Leo Holdings Corp Warrants', 1.170, 1024);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LHO', 'Lasalle Hotel Properties', 32.49, 1023);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LHO', 'Lasalle Hotel Properties', 32.49, 1029);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LHO-I', 'Lasalle Hotel Properties', 23.49, 1011);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LHO-J', 'Lasalle Hotel Properties', 22.35, 1011);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LII', 'Lennox International', 209.6, 1020);
@@ -341,38 +320,38 @@ insert into account(corporate, shortname, name, balance, bank_id) values (true, 
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LUB', 'Lubys Inc', 1.440, 1019);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LUV', 'Southwest Airlines Company', 45.69, 1020);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LVS', 'Las Vegas Sands', 49.35, 1021);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LW', 'Lamb Weston Holdings Inc', 74.43, 1022);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LXFR', 'Luxfer Holdings Plc', 16.78, 1023);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LW', 'Lamb Weston Holdings Inc', 74.43, 1021);
+insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LXFR', 'Luxfer Holdings Plc', 16.78, 1029);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LXFT', 'Luxoft Holding Inc', 30.65, 1024);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LXP', 'Lexington Realty Trust', 8.140, 1011);
 insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LXP-C', 'Lexington Realty Tru', 48.75, 1011);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LXU', 'Lsb Industries Inc', 5.560, 1027);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LYB', 'Lyondellbasell Industries Nv', 80.61, 1028);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LYG', 'Lloyds Banking Group Plc', 2.510, 1011);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LYV', 'Live Nation Entertainment', 48.65, 1030);
-insert into account(corporate, shortname, name, balance, bank_id) values (true, 'LZB', 'La-Z-Boy Inc', 26.06, 1031);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2160, true, 'LXU', 'Lsb Industries Inc', 5.560, 1021);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2161, true, 'LYB', 'Lyondellbasell Industries Nv', 80.61, 1028);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2162, true, 'LYG', 'Lloyds Banking Group Plc', 2.510, 1011);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2163, true, 'LYV', 'Live Nation Entertainment', 48.65, 1030);
+insert into account(id, corporate, shortname, name, balance, bank_id) values (2164, true, 'LZB', 'La-Z-Boy Inc', 26.06, 1029);
 
-insert into account(corporate, shortname, name, balance, bank_id) values (false, 'Jan', 'Kovalsky', 261.06, 1031);
+insert into account(corporate, shortname, name, balance, bank_id) values (false, 'Jan', 'Kovalsky', 261.06, 1029);
 
 insert into transfer(src_account_id, dest_account_id, units, internal) values (2005, 2003, 6633, FALSE);
-insert into transfer(src_account_id, dest_account_id, units, internal) values (2009, 2002, 81, FALSE);
-insert into transfer(src_account_id, dest_account_id, units, internal) values (2009, 2002, 8100, TRUE);
-insert into transfer(src_account_id, dest_account_id, units, internal) values (2011, 2002, 8103, FALSE);
-insert into transfer(src_account_id, dest_account_id, units, internal) values (2011, 2019, 8102, TRUE);
+insert into transfer(src_account_id, dest_account_id, units, internal) values (9, 2002, 81, FALSE);
+insert into transfer(src_account_id, dest_account_id, units, internal) values (9, 2002, 8100, TRUE);
+insert into transfer(src_account_id, dest_account_id, units, internal) values (8, 2002, 8103, FALSE);
+insert into transfer(src_account_id, dest_account_id, units, internal) values (8, 2013, 8102, TRUE);
 
-insert into currency(name, shortname) values ('Juan', '¥');
-insert into currency(name, shortname) values ('US Dollar', 'USD');
-insert into currency(name, shortname) values ('Yen', '¥');
-insert into currency(name, shortname) values ('Pound', '£');
-insert into currency(name, shortname) values ('Euro', 'EUR');
-insert into currency(name, shortname) values ('Zloty', 'PLN');
+insert into currency(id, name, shortname) values (30002, 'Juan', '¥');
+insert into currency(id, name, shortname) values (30003, 'US Dollar', 'USD');
+insert into currency(id, name, shortname) values (30004, 'Yen', '¥');
+insert into currency(id, name, shortname) values (30005, 'Pound', '£');
+insert into currency(id, name, shortname) values (30006, 'Euro', 'EUR');
+insert into currency(id, name, shortname) values (30007, 'Zloty', 'PLN');
 
-insert into country(name, shortname, currency_id) values ('China', 'CN', 30002);
-insert into country(name, shortname, currency_id) values ('United States', 'US', 30003);
-insert into country(name, shortname, currency_id) values ('Japan', 'JAP', 30004);
-insert into country(name, shortname, currency_id) values ('United Kingdom', 'UK', 30005);
-insert into country(name, shortname, currency_id) values ('Portugal', 'POR', 30006);
-insert into country(name, shortname, currency_id) values ('Spain', 'ES', 30006);
+insert into country(id, name, shortname, currency_id) values (10002, 'China', 'CN', 30002);
+insert into country(id, name, shortname, currency_id) values (10003, 'United States', 'US', 30003);
+insert into country(id, name, shortname, currency_id) values (10004, 'Japan', 'JAP', 30004);
+insert into country(id, name, shortname, currency_id) values (10005, 'United Kingdom', 'UK', 30005);
+insert into country(id, name, shortname, currency_id) values (10006, 'Portugal', 'POR', 30006);
+insert into country(id, name, shortname, currency_id) values (10007, 'Spain', 'ES', 30006);
 insert into country(name, shortname, currency_id) values ('France', 'FR', 30006);
 insert into country(name, shortname, currency_id) values ('Italy', 'IT', 30006);
 insert into country(name, shortname, currency_id) values ('Germany', 'DE', 30006);
@@ -390,53 +369,35 @@ insert into debit_card (account_id, is_active, bank_id, currency_id, balance) va
 
 insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2002, FALSE, 1001, 30001, 0.22, 350000);
 insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2002, TRUE, 1002, 30006, 4993245.22, 5100245);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2004, TRUE, 1002, 30006, 4239932.40, 6000932);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2006, TRUE, 1001, 30006, 149932, 390000);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2006, TRUE, 1021, 30001, 343, 350);
+insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (4, TRUE, 1002, 30006, 4239932.40, 6000932);
+insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (6, TRUE, 1001, 30006, 149932, 390000);
+insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (6, TRUE, 1021, 30001, 343, 350);
 insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2160, TRUE, 1013, 30005, 495.22, 500245);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2161, TRUE, 1044, 30005, 422.40, 600932);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2162, TRUE, 1044, 30006, 129932, 390000);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2163, TRUE, 1044, 30001, 0.22, 350000);
+insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2161, TRUE, 1029, 30005, 422.40, 600932);
+insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2162, TRUE, 1029, 30006, 129932, 390000);
+insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2163, TRUE, 1029, 30001, 0.22, 350000);
 insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2164, TRUE, 1002, 30006, 4993245.22, 5100245);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2040, TRUE, 1049, 30006, 4239932.40, 6000932);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2045, FALSE, 1049, 30006, 149932, 390000);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2046, TRUE, 1051, 30001, 343, 350);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2037, TRUE, 1043, 30005, 495.22, 500245);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2049, TRUE, 1044, 30005, 422.40, 600932);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2046, TRUE, 1042, 30006, 129932, 390000);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2041, TRUE, 1044, 30005, 422.40, 600932);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2142, FALSE, 1044, 30006, 129932, 390000);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2143, TRUE, 1044, 30001, 0.22, 350000);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2144, TRUE, 1042, 30006, 4993245.22, 5100245);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2160, TRUE, 1049, 30006, 4239932.40, 6000932);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2164, TRUE, 1042, 30006, 4993245.22, 5100245);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2040, TRUE, 1049, 30006, 4239932.40, 6000932);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2045, FALSE, 1049, 30006, 149932, 390000);
+insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2040, TRUE, 1029, 30006, 4239932.40, 6000932);
+insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2045, FALSE, 1029, 30006, 149932, 390000);
+insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2046, TRUE, 1001, 30001, 343, 350);
+insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2049, TRUE, 1029, 30005, 422.40, 600932);
+insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2046, TRUE, 1029, 30006, 129932, 390000);
+insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2160, TRUE, 1029, 30006, 4239932.40, 6000932);
+insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2164, TRUE, 1029, 30006, 4993245.22, 5100245);
+insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2040, TRUE, 1029, 30006, 4239932.40, 6000932);
+insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2045, FALSE, 1029, 30006, 149932, 390000);
 insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2046, FALSE, 1041, 30001, 343, 350);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2047, FALSE, 1043, 30005, 495.22, 500245);
-insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2049, FALSE, 1044, 30005, 422.40, 600932);
+insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2047, FALSE, 1029, 30005, 495.22, 500245);
+insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2049, FALSE, 1029, 30005, 422.40, 600932);
 insert into credit_card (account_id, is_active, bank_id, currency_id, balance, credit_limit) values (2046, FALSE, 1052, 30006, 129932, 390000);
 
 insert into log(created, file_path) values ('2019-12-02 14:39:47', 'log1.txt');
 
 --revision 2
 
-drop table IF EXISTS car;
-drop table IF EXISTS person;
-drop table IF EXISTS customer;
-drop table IF EXISTS life_insurance;
-drop table IF EXISTS car_insurance;
-drop table IF EXISTS fiscal_office;
-drop table IF EXISTS insurance_company;
-drop table IF EXISTS investment_fund;
-drop table IF EXISTS pension_fund;
-drop table IF EXISTS mobile_phone;
-drop table IF EXISTS mobile_phone_charges;
-drop table IF EXISTS currency_exchange_transfers;
-
 create TABLE person(
    id bigint NOT NULL PRIMARY KEY AUTO_INCREMENT,
-   NIN varchar(15) NOT NULL, --National Identification Number e.g PESEL for POland
+   NIN varchar(15) NOT NULL, --National Identification Number e.g PESEL for Poland
    lastname varchar(255) NOT NULL,
    name varchar(16),
    address_id bigint,
@@ -475,7 +436,7 @@ create TABLE car(
 );
 
 create TABLE insurance_company(
-	id bigint NOT NULL AUTO_INCREMENT,
+	id bigint NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	company_name varchar(255) NOT NULL
 );
 
@@ -485,7 +446,7 @@ create TABLE life_insurance(
 	company_id bigint,
 
 	FOREIGN KEY (person_id) REFERENCES person(id),
-  FOREIGN KEY (company_id) REFERENCES insurance_company(id)
+    FOREIGN KEY (company_id) REFERENCES insurance_company(id)
 );
 
 create TABLE fiscal_office(
@@ -493,7 +454,7 @@ create TABLE fiscal_office(
     name varchar(100),
     address_id bigint,
 
-    FOREIGN KEY (address_id) REFERENCES real_estate(id),
+    FOREIGN KEY (address_id) REFERENCES real_estate(id)
 );
 
 create TABLE pension_fund(
@@ -526,18 +487,18 @@ create TABLE currency_exchange_transfers(
   FOREIGN KEY (to_currency) REFERENCES currency(id)
 );
 
-insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL81072370013', 'Zawadzki', 'Szymon', 10011, 55001);
-insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL55050795518', 'Nowak', 'Marcin', 10011,null);
-insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL92010764410', 'Czech', 'Jakub', 10011,null);
-insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL49072286510', 'Makowski', 'Ryszard', 10011,null);
-insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL63073160301', 'Maniak', 'Alina', 10011,null);
-insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL73090374900', 'Ziemier', 'Maja', 10011,null);
+insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL81072370013', 'Zawadzki', 'Szymon', 10002, 55001);
+insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL55050795518', 'Nowak', 'Marcin', 10002,null);
+insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL92010764410', 'Czech', 'Jakub', 10002,null);
+insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL49072286510', 'Makowski', 'Ryszard', 10002,null);
+insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL63073160301', 'Maniak', 'Alina', 10002,null);
+insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL73090374900', 'Ziemier', 'Maja', 10002,null);
 insert into person (NIN, lastname, name, nationality_id, address_id) values ('US?', 'Drake', 'Jason', 10003,null);
 insert into person (NIN, lastname, name, nationality_id, address_id) values ('US?', 'Johnson', 'Jason', 10003,null);
-insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL93073118905', 'Burska', 'Klara', 10011,null);
-insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL77021263305', 'Gilewicz', 'Katarzyna', 10011,null);
-insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL55010707519', 'Nawrot', 'Zenon', 10011,null);
-insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL99013137715', 'Nowakowski', 'Arkadiusz', 10011,null);
+insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL93073118905', 'Burska', 'Klara', 10002,null);
+insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL77021263305', 'Gilewicz', 'Katarzyna', 10002,null);
+insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL55010707519', 'Nawrot', 'Zenon', 10002,null);
+insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL99013137715', 'Nowakowski', 'Arkadiusz', 10002,null);
 insert into person (NIN, lastname, name, nationality_id, address_id) values ('US241-19-4855', 'Hood', 'Wilfredo L.', 10003,null);
-insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL93073180113', 'Nawrocki', 'Przemyslaw', 10011,null);
-insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL69111240310', 'Juskiewicz', 'Zbigniew', 10011,null);
+insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL93073180113', 'Nawrocki', 'Przemyslaw', 10002,null);
+insert into person (NIN, lastname, name, nationality_id, address_id) values ('PL69111240310', 'Juskiewicz', 'Zbigniew', 10002,null);
