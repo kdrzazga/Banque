@@ -4,7 +4,6 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.kd.main.common.entities.CreditCard;
 
-import org.kd.main.common.entities.DebitCard;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;

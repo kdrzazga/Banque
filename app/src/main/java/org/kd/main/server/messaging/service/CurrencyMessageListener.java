@@ -34,7 +34,7 @@ public class CurrencyMessageListener implements Runnable {
     }
 
     private int determineDelay() {
-        Integer delay;
+        int delay;
         try {
             delay = Integer.decode(currencyPollingTime);
         } catch (NumberFormatException e) {
