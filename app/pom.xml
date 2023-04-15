@@ -17,6 +17,8 @@
         <start-class-server>org.kd.main.server.TraderServer</start-class-server>
         <start-class-client>org.kd.main.client.LauncherFx</start-class-client>
 
+        <maven.source.version>11</maven.source.version>
+        <maven.target.version>11</maven.target.version>
         <spring.version>5.2.19.RELEASE</spring.version>
         <spring-boot.version>2.0.7.RELEASE</spring-boot.version>
         <spring-boot-starter-data-jpa.version>2.1.1.RELEASE</spring-boot-starter-data-jpa.version>
