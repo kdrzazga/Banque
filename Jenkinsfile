@@ -44,6 +44,9 @@ pipeline {
             }
         }
         stage('deploy'){
+            when{
+                expression{false}
+            }
             steps {
                 script {
                     sh "docker build -t banque-img ."
