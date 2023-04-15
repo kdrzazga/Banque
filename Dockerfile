@@ -26,5 +26,9 @@ ENV DEBIAN_FRONTEND=noninteractive \
     DISPLAY=:1 \
     TERM=xterm
 
+COPY app/target/banque-app-0.8.0-RELEASE-jar-with-dependencies.jar /usr/local/share/banque.jar
+RUN cd /usr/local/share/
+RUN chmod 777 banque.jar
+
 # Start the Xfce desktop environment and launch Chromium browser
 CMD ["startxfce4"]
