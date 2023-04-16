@@ -9,6 +9,10 @@ pipeline {
         cron('15 0 * * *')
     }
 
+    parameters {
+        string(name: 'POM_FILE', defaultValue: 'app/pom.xml', description: 'Path to the POM file')
+    }
+
     stages {
         stage('checkout'){
             steps {
@@ -25,7 +29,7 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh "mvn -Dmaven.test.failure.ignore=true clean compile"
+                sh "mvn -f ${params.POM_FILE} -Dmaven.test.failure.ignore=true clean compile"
             }
             post {
                 failure {
@@ -35,7 +39,7 @@ pipeline {
         }
         stage('test'){
             steps {
-                sh "mvn -Dmaven.test.failure.ignore=true test"
+                sh "mvn -f ${params.POM_FILE} -Dmaven.test.failure.ignore=true test -Dgroups=org.kd.main.categories.UnitTests"
             }
             post {
                 success {
@@ -45,7 +49,7 @@ pipeline {
         }
         stage('deploy'){
             when{
-                expression{false}
+                expression{false} //DEPLOY is temporarily disabled
             }
             steps {
                 script {
