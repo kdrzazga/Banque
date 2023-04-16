@@ -1,9 +1,11 @@
 package org.kd.main.server.model.data.dao;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.runner.RunWith;
+import org.kd.main.categories.UnitTests;
 import org.kd.main.server.TraderServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,6 +26,7 @@ public class DebitCardDaoRepoTest {
     private DebitCardDaoRepo debitCardDao;
 
     @Test
+    @Category(UnitTests.class)
     public void testReadAccountCards(){
         var accountId = 2001L;
         var cards = debitCardDao.readAccountCards(accountId);

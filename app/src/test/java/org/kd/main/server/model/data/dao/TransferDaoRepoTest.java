@@ -2,9 +2,12 @@ package org.kd.main.server.model.data.dao;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.runner.RunWith;
+import org.kd.main.categories.ModuleIntegrationTests;
+import org.kd.main.categories.UnitTests;
 import org.kd.main.common.entities.Account;
 import org.kd.main.server.TraderServer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +35,7 @@ public class TransferDaoRepoTest {
 
     @Test
     @Order(value = 1)
+    @Category(ModuleIntegrationTests.class)
     public void testBookInternalTransfer() {
         var srcAccount = accountDaoRepo.read(2011L);
         var commonBankId = srcAccount.getBankId();
@@ -40,6 +44,7 @@ public class TransferDaoRepoTest {
     }
 
     @Test
+    @Category(ModuleIntegrationTests.class)
     public void testBookExternalTransfer() {
         var srcAccount = accountDaoRepo.read(2011L);
         var commonBankId = srcAccount.getBankId();
@@ -49,6 +54,7 @@ public class TransferDaoRepoTest {
 
     @Test
     @Order(value = 2)
+    @Category(UnitTests.class)
     public void testReadByPrimaryKey() {
         assertEquals(Long.valueOf(3002), transferDaoRepo.readByPrimaryKey(3002L).getId());
         assertEquals(Long.valueOf(3003), transferDaoRepo.readByPrimaryKey(3003L).getId());
@@ -57,6 +63,7 @@ public class TransferDaoRepoTest {
 
     @Test
     @Order(value = 3)
+    @Category(UnitTests.class)
     public void testReadForParticularFund() {
         var tradeForFund2002 = transferDaoRepo.readByDestAccountId(2002L);
         Assert.assertNotNull(tradeForFund2002);
@@ -65,6 +72,7 @@ public class TransferDaoRepoTest {
 
     @Test
     @Order(value = 4)
+    @Category(UnitTests.class)
     public void testReadAll() {
         var transacts = transferDaoRepo.readAll();
 
@@ -76,6 +84,7 @@ public class TransferDaoRepoTest {
 
     @Test
     @Order(value = 5)
+    @Category(UnitTests.class)
     public void testDeleteTransferByPrimaryKey() {
         var id = 3006L;
         transferDaoRepo.deleteByPrimaryKey(id);

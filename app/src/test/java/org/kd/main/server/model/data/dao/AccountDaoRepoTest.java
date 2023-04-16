@@ -2,9 +2,12 @@ package org.kd.main.server.model.data.dao;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.runner.RunWith;
+import org.kd.main.categories.ModuleIntegrationTests;
+import org.kd.main.categories.UnitTests;
 import org.kd.main.server.TraderServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,11 +29,13 @@ public class AccountDaoRepoTest {
     private AccountDaoRepo accountDaoRepo;
 
     @Test
+    @Category(UnitTests.class)
     public void testPersistenceContextInjection(){
         assertNotNull(accountDaoRepo.getSession());
     }
 
     @Test
+    @Category(UnitTests.class)
     public void testReadAllCorporate() {
         var allCustomers = accountDaoRepo.readAllCorporate();
 
@@ -39,6 +44,7 @@ public class AccountDaoRepoTest {
     }
 
     @Test
+    @Category(UnitTests.class)
     public void testGetSingleAccountById() {
         var customer = accountDaoRepo.read(2012L);
 
@@ -47,6 +53,7 @@ public class AccountDaoRepoTest {
     }
 
     @Test(expected = EmptyResultDataAccessException.class)
+    @Category(ModuleIntegrationTests.class)
     public void testDeleteCustomer(){
         var id = 2013L;
         accountDaoRepo.delete(id);

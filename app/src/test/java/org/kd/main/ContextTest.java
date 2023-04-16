@@ -1,7 +1,9 @@
 package org.kd.main;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
+import org.kd.main.categories.UnitTests;
 import org.kd.main.server.TraderServer;
 import org.kd.main.server.model.data.dao.BankDaoRepo;
 import org.kd.main.server.model.data.dao.AccountDaoRepo;
@@ -26,6 +28,7 @@ public class ContextTest {
     private TransferDaoRepo transferDao;
 
     @Test
+    @Category(UnitTests.class)
     public void contextSetup() {
         assertNotNull(customerDao);
         assertNotNull(bankDao);

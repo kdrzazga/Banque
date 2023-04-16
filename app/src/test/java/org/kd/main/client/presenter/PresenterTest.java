@@ -6,7 +6,9 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
+import org.kd.main.categories.ModuleIntegrationTests;
 import org.kd.main.client.presenter.config.TestClientConfig;
 import org.kd.main.common.TraderConfig;
 import org.kd.main.common.entities.*;
@@ -76,6 +78,7 @@ public class PresenterTest {
     }
 
     @Test
+    @Category(ModuleIntegrationTests.class)
     public void testLoadBanks() {
         var banks = presenterHandler.readBanks();
         assertNotNull(banks);
@@ -83,6 +86,7 @@ public class PresenterTest {
     }
 
     @Test
+    @Category(ModuleIntegrationTests.class)
     public void testLoadAccounts() {
         var accounts = presenterHandler.readAccounts();
         assertNotNull(accounts);
@@ -90,6 +94,7 @@ public class PresenterTest {
     }
 
     @Test
+    @Category(ModuleIntegrationTests.class)
     public void testLoadTransfers() {
         var transfers = presenterHandler.readTransfers();
         assertNotNull(transfers);

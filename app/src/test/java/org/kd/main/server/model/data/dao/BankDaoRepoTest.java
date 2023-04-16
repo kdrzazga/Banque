@@ -2,9 +2,11 @@ package org.kd.main.server.model.data.dao;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.runner.RunWith;
+import org.kd.main.categories.UnitTests;
 import org.kd.main.common.entities.Bank;
 import org.kd.main.common.entities.Account;
 import org.kd.main.server.TraderServer;
@@ -30,12 +32,14 @@ public class BankDaoRepoTest {
     private BankDaoRepo bankDaoRepo;
 
     @Test
+    @Category(UnitTests.class)
     public void testCreate() {
         Long bankId = bankDaoRepo.create(new Bank("Test Bank", "TEST"));
         assertEquals(bankId, bankDaoRepo.read("TEST").getId());
     }
 
     @Test
+    @Category(UnitTests.class)
     public void testGetAllBanks() {
         var allBanks = bankDaoRepo.readAll();
 
@@ -44,6 +48,7 @@ public class BankDaoRepoTest {
     }
 
     @Test
+    @Category(UnitTests.class)
     public void testGetSingleBankById() {
         var id = Long.valueOf(1012);
         var bank = bankDaoRepo.read(id);
@@ -53,6 +58,7 @@ public class BankDaoRepoTest {
     }
 
     @Test
+    @Category(UnitTests.class)
     public void testGetSingleBankByName() {
         var bank = bankDaoRepo.read("BABA");
 
@@ -61,6 +67,7 @@ public class BankDaoRepoTest {
     }
 
     @Test
+    @Category(UnitTests.class)
     public void testGetAssociatedAccounts() {
         List<Account> associatedAccounts = bankDaoRepo.readAssociatedAccounts(1012L);
 
@@ -70,6 +77,7 @@ public class BankDaoRepoTest {
     }
 
     @Test
+    @Category(UnitTests.class)
     public void testBankUpdate() {
         var newBankName = "NEW TEST NAME";
         var bank = bankDaoRepo.read(1012L);
@@ -81,6 +89,7 @@ public class BankDaoRepoTest {
     }
 
     @Test(expected = EmptyResultDataAccessException.class)
+    @Category(UnitTests.class)
     public void testDeleteWithFkNulling() {
         var id = 1011L;
         var associatedAccounts = bankDaoRepo.readAssociatedAccounts(id);
