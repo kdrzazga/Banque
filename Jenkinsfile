@@ -29,6 +29,7 @@ pipeline {
         }
         stage('build') {
             steps {
+                echo "Using POM file ${params.POM_FILE}"
                 sh "mvn -f ${params.POM_FILE} -Dmaven.test.failure.ignore=true clean compile"
             }
             post {
@@ -37,9 +38,16 @@ pipeline {
                 }
             }
         }
-        stage('test'){
+        stage('unit test'){
             steps {
-                sh "mvn -f ${params.POM_FILE} -Dmaven.test.failure.ignore=true test -Dgroups=org.kd.main.categories.UnitTests"
+                script {
+                        if (fileExists('${params.POM_FILE}')) {
+                                echo "Using POM file ${params.POM_FILE}"
+                            } else {
+                                error 'Cannot find POM file in ${params.POM_FILE}'
+                            }
+                        }
+                sh "mvn -f ${params.POM_FILE} -Dgroups=org.kd.main.categories.UnitTests"
             }
             post {
                 success {
