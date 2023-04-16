@@ -30,7 +30,7 @@ pipeline {
         stage('build') {
             steps {
                 echo "Using POM file ${params.POM_FILE}"
-                sh "mvn -f ${params.POM_FILE} test -Dmaven.test.failure.ignore=true clean compile"
+                sh "mvn test -f ${params.POM_FILE} -Dmaven.test.failure.ignore=true clean compile"
             }
             post {
                 failure {
