@@ -1,3 +1,6 @@
+# docker build -t banque-img .
+# docker run -it banque-img
+
 FROM debian:latest
 
 # Install Xfce desktop environment and related packages
@@ -14,7 +17,7 @@ RUN apt-get update && \
 
 # Install Chromium browser
 RUN apt-get update && \
-    apt-get install -y chromium && \
+    apt-get install -y chromium mc && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -28,7 +31,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 COPY app/target/banque-app-0.8.0-RELEASE-jar-with-dependencies.jar /usr/local/share/banque.jar
 RUN cd /usr/local/share/
-RUN chmod 777 banque.jar
+#RUN chmod 777 banque.jar
 
 # Start the Xfce desktop environment and launch Chromium browser
-CMD ["startxfce4"]
+#CMD ["startxfce4"]
+CMD ["mc"]
