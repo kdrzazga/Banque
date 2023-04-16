@@ -1,7 +1,6 @@
 package org.kd.main.server.rest.controller;
 
 import org.kd.main.common.entities.CreditCard;
-import org.kd.main.common.entities.DebitCard;
 import org.kd.main.server.model.data.dao.CreditCardDaoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

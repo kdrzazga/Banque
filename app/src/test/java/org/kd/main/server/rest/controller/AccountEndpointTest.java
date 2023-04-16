@@ -5,7 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
+import org.kd.main.categories.SystemIntegrationTests;
 import org.kd.main.common.RestUtility;
 import org.kd.main.common.TraderConfig;
 import org.kd.main.common.entities.CorporateAccount;
@@ -30,6 +32,7 @@ public class AccountEndpointTest {
     private RestUtility restUtility;
 
     @Test
+    @Category(SystemIntegrationTests.class)
     public void testUpdateAccount() {
         TraderServer.getInstance().start();
         var contentType = "application/json";

@@ -5,7 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
+import org.kd.main.categories.SystemIntegrationTests;
 import org.kd.main.common.RestUtility;
 import org.kd.main.common.TraderConfig;
 import org.kd.main.common.entities.Bank;
@@ -31,6 +33,7 @@ public class BankEndpointTest {
 
     @Test
     @Ignore
+    @Category(SystemIntegrationTests.class)
     public void testUpdateBank() {
         TraderServer.getInstance().start();
         var requestUrl = "http://localhost:8080/bank";
