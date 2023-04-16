@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 @EntityScan(basePackages = "org.kd.main.common.entities")
 public class TraderConfig {
 
-    @Value("${server_port}")
+    @Value("${server.port}")
     private String port;
 
     @Bean//necessary for JavaFx CLIENT APP, Sever will autoconfigure the component.

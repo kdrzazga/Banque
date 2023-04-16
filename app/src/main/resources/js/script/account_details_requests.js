@@ -32,7 +32,7 @@ function loadDebitCards() {
             alert(message);
         }
     };
-    xhttp.open("GET", "http://localhost:8080/corporate-accounts", true);
+    xhttp.open("GET", "http://localhost:" + port_number + "/corporate-accounts", true);
     xhttp.send();
 
 }

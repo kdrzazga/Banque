@@ -12,7 +12,7 @@ function stopApplication() {
             }
         }
     };
-    xhttp.open("POST", "http://localhost:8080/stop", true);
+    xhttp.open("POST", "http://localhost:"+port_number+"/stop", true);
     xhttp.send();
 }
 
@@ -42,7 +42,7 @@ function readAccounts() {
             alert(message);
         }
     };
-    xhttp.open("GET", "http://localhost:8080/corporate-accounts", true);
+    xhttp.open("GET", "http://localhost:" + port_number + "/corporate-accounts", true);
     xhttp.send();
 }
 
@@ -69,7 +69,7 @@ function readBanks() {
             }
         }
     };
-    xhttp.open("GET", "http://localhost:8080/banks", true);
+    xhttp.open("GET", "http://localhost:" + port_number + "/banks", true);
     xhttp.send();
 }
 
@@ -108,6 +108,6 @@ function readTransfers() {
             }
         }
     };
-    xhttp.open("GET", "http://localhost:8080/transfers", true);
+    xhttp.open("GET", "http://localhost:" + port_number + "/transfers", true);
     xhttp.send();
 }
