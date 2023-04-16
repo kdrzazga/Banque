@@ -41,7 +41,7 @@ pipeline {
         stage('unit test'){
             steps {
                 script {
-                        if (fileExists('${params.POM_FILE}')) {
+                        if (fileExists("${params.POM_FILE}")) {
                                 echo "Using POM file ${params.POM_FILE}"
                             } else {
                                 error 'Cannot find POM file in ${params.POM_FILE}'
