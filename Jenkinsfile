@@ -30,7 +30,7 @@ pipeline {
         stage('build') {
             steps {
                 echo "Using POM file ${params.POM_FILE}"
-                sh "mvn test -f ${params.POM_FILE} -Dmaven.test.failure.ignore=true clean compile"
+                sh "mvn -DskipTests clean compile"
             }
             post {
                 failure {
@@ -47,7 +47,7 @@ pipeline {
                                 error 'Cannot find POM file in ${params.POM_FILE}'
                             }
                         }
-                sh "mvn -f ${params.POM_FILE} -Dgroups=org.kd.main.categories.UnitTests"
+                sh "mvn test -f ${params.POM_FILE} -Dgroups=org.kd.main.categories.UnitTests"
             }
             post {
                 success {
